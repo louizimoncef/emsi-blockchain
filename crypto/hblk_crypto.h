@@ -1,4 +1,5 @@
 #ifndef hblk_crypto
+#define hblk_crypto
 #include<stdint.h>
 #include<inttypes.h>
 #include <openssl/ssl.h>
