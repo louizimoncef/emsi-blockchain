@@ -7,3 +7,4 @@ if (strlen((char *)s) > 0)
 testptr = SHA256((unsigned char *)s, len, digest);
 return (testptr != NULL ? digest : NULL);
 }
+
