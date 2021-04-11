@@ -2,8 +2,18 @@
 uint8_t *sha256(int8_t const *s, size_t len,
 uint8_t digest[SHA256_DIGEST_LENGTH])
 {
-unsigned char *testptr = NULL;
-if (strlen((char *)s) > 0)
-testptr = SHA256((unsigned char*)s, len, digest);
-return (digest != NULL ? digest : NULL);
+if (s)
+{
+unsigned int mt_len;
+SHA256_CTX *mdctx;
+const EVP_MD *md;
+md = EVP_sha256();
+mdctx = EVP_MD_CTX_create();
+EVP_DigestInit_ex(mdctx, md, NULL);
+EVP_DigestUpdate(mdctx, s, len);
+EVP_DigestFinal_ex(mdctx, digest, &mt_len);
+EVP_MD_CTX_destroy(mdctx);
+EVP_cleanup();
+}
+return (digest ? digest : NULL);
 }
