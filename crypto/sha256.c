@@ -4,6 +4,6 @@ uint8_t digest[SHA256_DIGEST_LENGTH])
 {
 unsigned char* testptr = NULL;
 if (strlen((char*)s) > 0)
-testptr = SHA256((unsigned char*)s, len,(unsigned char*)digest);
+testptr = SHA256((const unsigned char*)s, len,(unsigned char*)digest);
 return (testptr != NULL ? digest : NULL);
 }
