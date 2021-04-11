@@ -6,15 +6,14 @@ if (s)
 {
 EVP_MD_CTX *mdctx;
 const EVP_MD *md;
-unsigned int md_len;
 md = EVP_sha256();
 mdctx = EVP_MD_CTX_create();
+unsigned int md_len;
 EVP_DigestInit_ex(mdctx, md, NULL);
 EVP_DigestUpdate(mdctx, s, len);
 EVP_DigestFinal_ex(mdctx, digest, &md_len);
 EVP_MD_CTX_destroy(mdctx);
 EVP_cleanup();
-len = (int)md_len;
 }
 return (digest ? digest : NULL);
 }
