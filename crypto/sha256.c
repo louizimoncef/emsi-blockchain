@@ -9,5 +9,8 @@ SHA256_Init(&ctx);
 SHA256_Update(&ctx, s, len);
 SHA256_Final(digest, &ctx);
 }
-return (digest != NULL ? digest : NULL);
+if(digest != NULL)
+return digest ;
+else
+return NULL;
 }
