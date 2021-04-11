@@ -2,13 +2,9 @@
 uint8_t *sha256(int8_t const *s, size_t len,
 uint8_t digest[SHA256_DIGEST_LENGTH])
 {
-digest = NULL;
-if (s)
-{
-SHA256_CTX ctx;
-SHA256_Init(&ctx);
-SHA256_Update(&ctx, s, len);
-SHA256_Final(digest, &ctx);
+unsigned char *testptr=NULL;
+if (strlen((char*)s) > 0)
+testptr=SHA256((unsigned char*)s, len, digest);
+return (testptr !=NULL ? digest : NULL);
 }
-return (digest ? digest : NULL);
-}
+
