@@ -1,6 +1,8 @@
 #include "hblk_crypto.h"
 uint8_t *ec_to_pub(EC_KEY const *key, uint8_t pub[EC_PUB_LEN])
 {
+if (key)
+return (NULL)
 const EC_POINT *ecp = EC_KEY_get0_public_key(key);
 int test;
 EC_GROUP *ec_group_new = EC_GROUP_new_by_curve_name(NID_secp256k1);
