@@ -1,25 +1,23 @@
+@@ -1,13 +1,11 @@
 #include "hblk_crypto.h"
-
-/**
- * A function that extracts the public key
- * from an EC_KEY structure
- * @key: a pointer to the EC_KEY structure to retrieve the public key from
- * @pub: the address at which to store the extracted public key
- * containing both the public and private keys
- * or NULL upon failure
- *
- * Return: a pointer to pub or NULL upon failure
- */
 uint8_t *ec_to_pub(EC_KEY const *key, uint8_t pub[EC_PUB_LEN])
 {
-	const EC_POINT *pub_key;
-	const EC_GROUP *group;
 
-	if ( pub == NULL || key == NULL)
-		return (NULL);
-	pub_key = EC_KEY_get0_public_key(key);
-	group = EC_KEY_get0_group(key);
-	if (!EC_POINT_point2oct(group, pub_key, POINT_CONVERSION_UNCOMPRESSED, pub, EC_PUB_LEN, NULL))
-		return (NULL);
-	return (pub);
+if (key){
+const EC_POINT *ecp = EC_KEY_get0_public_key(key);
+int test;
+EC_GROUP *ec_group_new = EC_GROUP_new_by_curve_name(NID_secp256k1);
+BN_CTX *bnctx = BN_CTX_new();
+if (key)
+return (NULL);
+if (ecp == NULL)
+return (NULL);
+if (ec_group_new == NULL)
+@@ -23,5 +21,6 @@ test = EC_POINT_point2oct(ec_group_new, ecp, POINT_CONVERSION_UNCOMPRESSED,
+pub, EC_PUB_LEN, bnctx);
+EC_GROUP_free(ec_group_new);
+BN_CTX_free(bnctx);
+return (test ? pub : NULL);
+return (test ? pub : NULL);}
+  return NULL;
 }
