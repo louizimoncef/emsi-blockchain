@@ -1,11 +1,5 @@
 #include "hblk_crypto.h"
-#include <openssl/evp.h>
-#include <openssl/ec.h>
-#include <openssl/pem.h>
-#include <openssl/bio.h>
-#include <stdint.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+
 int ec_save(EC_KEY *key, char const *folder)
 {
 FILE *PRK_F=NULL, *PUK_F=NULL;
