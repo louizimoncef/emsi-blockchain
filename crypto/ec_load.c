@@ -13,9 +13,9 @@ sprintf(file, "./%s/%s", folder, PUB_FILENAME);
 f = fopen(file, "r");
 sprintf(file, "./%s/%s", folder, PRI_FILENAME);
 f1 = fopen(file, "r");
-if (!f)
+if (!f && !f1)
 return (NULL);
-if (!PEM_read_EC_PUBKEY(f, &ec_key, NULL, NULL)&&!PEM_read_ECPrivateKey(f1, &ec_key, NULL, NULL))
+if (!PEM_read_EC_PUBKEY(f, &ec_key, NULL, NULL) && !PEM_read_ECPrivateKey(f1, &ec_key, NULL, NULL))
 return (NULL);
 fclose(f);
 fclose(f1);
