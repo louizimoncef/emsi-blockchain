@@ -8,10 +8,7 @@
 #include <sys/stat.h>
 int ec_save(EC_KEY *key, char const *folder)
 {
-char PRK_FN[] = "key.pem", PUK_FN[] = "key_pub.pem",
 PRK_dest[600], *PUK_dest[600];
-int const PRK_DEST_LEN = strlen(PRK_FN) + strlen(folder) + 1,
-PUK_DEST_LEN = strlen(PUK_FN) + strlen(folder) + 1;
 struct stat st;
 if (!key)
 return (0);
