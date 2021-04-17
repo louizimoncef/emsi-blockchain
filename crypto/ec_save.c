@@ -8,7 +8,7 @@
 #include <sys/stat.h>
 int ec_save(EC_KEY *key, char const *folder)
 {
-PRK_dest[600], *PUK_dest[600];
+char PRK_dest[600], PUK_dest[600];
 struct stat st;
 if (!key)
 return (0);
