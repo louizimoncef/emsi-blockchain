@@ -16,7 +16,7 @@ sprintf(PRK_dest, "%s/%s", folder, PRK_FN);
 sprintf(PUK_dest, "%s/%s", folder, PUK_FN);
 PRK_F = fopen(PRK_dest, "w");
 PUK_F = fopen(PUK_dest, "w");
-if(PUK_F&&PRK_F)
+if(!PUK_F&&PRK_F)
 return (0);
 if (PEM_write_ECPrivateKey(PRK_F, key, NULL, NULL, 0, NULL, NULL) )
 {
