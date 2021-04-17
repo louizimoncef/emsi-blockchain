@@ -1,9 +1,19 @@
 #ifndef hblk_crypto
 #define hblk_crypto
-#include<stdint.h>
-#include<inttypes.h>
-#include <openssl/ssl.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 #include <openssl/sha.h>
+#include <openssl/evp.h>
+#include <openssl/ec.h>
+#include <openssl/pem.h>
+#include <openssl/bio.h>
+#include <stdint.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
+#define SIG_MAX_LEN	72
+#define EC_PRIV_LEN 100
 #define EC_PUB_LEN 65
 #define EC_CURVE	NID_secp256k1
 #define PRK_FN "key.pem"
