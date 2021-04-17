@@ -18,14 +18,14 @@ if (stat(folder, &st) == -1)
 if (mkdir(folder, 0700) == -1)
 return (0);
 }
-sprintf(file, "%s/%s", folder, PRIVATE_FILENAME);
+sprintf(file, "%s/%s", folder, PRI_FILENAME);
 myfile = fopen(file, "w");
 if (!myfile)
 return (0);
 if (!PEM_write_ECPrivateKey(myfile, key, NULL, NULL, 0, NULL, NULL))
 return (0);
 fclose(myfile);
-sprintf(file, "%s/%s", folder, PUBLIC_FILENAME);
+sprintf(file, "%s/%s", folder, PUB_FILENAME);
 myfile = fopen(file, "w");
 if (!myfile)
 return (0);
