@@ -24,7 +24,7 @@ PRK_F = fopen(PRK_dest, "w");
 PUK_F = fopen(PUK_dest, "w");
 if (PEM_write_ECPrivateKey(PRK_F, key, NULL, NULL, 0, NULL, NULL) )
 {
-PEM_write_EC_PUBKEY(PUK_F, key)
+PEM_write_EC_PUBKEY(PUK_F, key);
 fclose(PRK_F);
 fclose(PUK_F);
 return (1);
