@@ -3,7 +3,7 @@ EC_KEY *ec_load(char const *folder)
 {
 char file[512] = { 0 };
 FILE *f, *f1;
-EC_KEY* ec_key = NULL;
+EC_KEY *ec_key = NULL;
 struct stat st;
 if (!folder)
 return (NULL);
