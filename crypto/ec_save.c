@@ -1,26 +1,32 @@
 #include "hblk_crypto.h"
 
+
 int ec_save(EC_KEY *key, char const *folder)
 {
-FILE *PRK_F=NULL, *PUK_F=NULL;
-char PRK_dest[600], PUK_dest[600];
-struct stat st;
-if (!key || !folder)
-return (0);
-if (stat(folder, &st) == -1)
-{
-        if (mkdir(folder, 0700) == -1)
-                return 0;
+	char file[512];
+	FILE *f;
+	struct stat st;
+
+	if (!key || !folder)
+		return 0;
+	if (stat(folder, &st) == -1)
+	{
+		if (mkdir(folder, 0700) == -1)
+			return 0;
+	}
+	sprintf(file, "%s/%s", folder, PRI_FILENAME);
+	f = fopen(file, "w");
+	if (!f)
+		return 0;
+	if (!PEM_write_ECPrivateKey(f, key, NULL, NULL, 0, NULL, NULL))
+		return 0;
+	fclose(f);
+	sprintf(file, "%s/%s", folder, PUB_FILENAME);
+	f = fopen(file, "w");
+	if (!f)
+		return 0;
+	if (!PEM_write_EC_PUBKEY(f, key))
+		return 0;
+	fclose(f);
+	return 1;
 }
-sprintf(PRK_dest, "%s/%s", folder, PRI_FILENAME);
-sprintf(PUK_dest, "%s/%s", folder, PUB_FILENAME);
-PRK_F = fopen(PRK_dest, "w");
-PUK_F = fopen(PUK_dest, "w");
-if (PEM_write_ECPrivateKey(PRK_F, key, NULL, NULL, 0, NULL, NULL) )
-{
-PEM_write_EC_PUBKEY(PUK_F, key);
-fclose(PRK_F);
-fclose(PUK_F);
-return (1);
-}
-return (0);
