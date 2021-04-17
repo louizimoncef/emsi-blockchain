@@ -8,7 +8,7 @@
 int ec_save(EC_KEY *key, char const *folder)
 {
 char file[512];
-FILE *f;
+FILE *myfile;
 struct stat st;
 
 if (!key || !folder)
@@ -19,18 +19,18 @@ if (mkdir(folder, 0700) == -1)
 return (0);
 }
 sprintf(file, "%s/%s", folder, PRI_FILENAME);
-f = fopen(file, "w");
-if (!f)
+myfile = fopen(file, "w");
+if (!myfile)
 return (0);
-if (!PEM_write_ECPrivateKey(f, key, NULL, NULL, 0, NULL, NULL))
+if (!PEM_write_ECPrivateKey(myfile, key, NULL, NULL, 0, NULL, NULL))
 return (0);
-fclose(f);
+fclose(myfile);
 sprintf(file, "%s/%s", folder, PUB_FILENAME);
-f = fopen(file, "w");
-if (!f)
+myfile = fopen(file, "w");
+if (!myfile)
 return (0);
-if (!PEM_write_EC_PUBKEY(f, key))
+if (!PEM_write_EC_PUBKEY(myfile, key))
 return (0);
-fclose(f);
+fclose(myfile);
 return (1);
 }
