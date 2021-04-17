@@ -18,13 +18,14 @@ PRK_F = fopen(PRK_dest, "w");
 PUK_F = fopen(PUK_dest, "w");
 if(!PUK_F&&PRK_F)
 return (0);
-if (PEM_write_ECPrivateKey(PRK_F, key, NULL, NULL, 0, NULL, NULL) )
-{
+	if (!PEM_write_ECPrivateKey(f, key, NULL, NULL, 0, NULL, NULL))
+		return 0;
+
 PEM_write_EC_PUBKEY(PUK_F, key);
 fclose(PRK_F);
 fclose(PUK_F);
 return (1);
-}
+
 return (0);
 	
 }
