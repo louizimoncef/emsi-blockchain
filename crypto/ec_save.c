@@ -1,12 +1,5 @@
 #include "hblk_crypto.h"
-#include <openssl/evp.h>
-#include <openssl/ec.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include "hblk_crypto.h"
 
-#define PUB_FILENAME	"key_pub.pem"
-#define PRI_FILENAME	"key.pem"
 int ec_save(EC_KEY *key, char const *folder)
 {
 	char file[512];
