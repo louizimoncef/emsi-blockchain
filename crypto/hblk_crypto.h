@@ -13,8 +13,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#define PUB_FILENAME	"key_pub.pem"
-#define PRI_FILENAME	"key.pem"
+#define PUB	"key_pub.pem"
+#define PRI	"key.pem"
 #define EC_CURVE	NID_secp256k1
 
 #define EC_PUB_LEN	65
