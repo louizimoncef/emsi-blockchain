@@ -12,8 +12,8 @@
 #include <stdint.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#define PUBLIC_FILENAME	"key_pub.pem"
-#define PRIVATE_FILENAME	"key.pem"
+#define PUB_FILENAME	"key_pub.pem"
+#define PRI_FILENAME	"key.pem"
 #define EC_CURVE	NID_secp256k1
 #define EC_PUB_LEN	65
 uint8_t *sha256(int8_t const *s, size_t len,
