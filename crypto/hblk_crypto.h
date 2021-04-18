@@ -16,7 +16,7 @@
 #define PRI_FILENAME	"key.pem"
 #define EC_CURVE	NID_secp256k1
 #define EC_PUB_LEN	65
-#define SIG_LEN	100
+#define SIG_LEN	72
 typedef struct sig_t sig_t;
 struct sig_t
 {
