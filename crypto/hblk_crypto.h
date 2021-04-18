@@ -16,10 +16,18 @@
 #define PRI_FILENAME	"key.pem"
 #define EC_CURVE	NID_secp256k1
 #define EC_PUB_LEN	65
+typedef struct sig_t sig_t;
+struct sig_t
+{
+uint8_t  sig[256];
+size_t len;
+};
 uint8_t *sha256(int8_t const *s, size_t len,
 uint8_t digest[SHA256_DIGEST_LENGTH]);
 EC_KEY *ec_create(void);
 uint8_t *ec_to_pub(EC_KEY const *key, uint8_t pub[EC_PUB_LEN]);
 int ec_save(EC_KEY *key, char const *folder);
 EC_KEY *ec_load(char const *folder);
+uint8_t* ec_sign(EC_KEY const* key, uint8_t const* msg,
+size_t msglen, sig_t* sig);
 #endif
