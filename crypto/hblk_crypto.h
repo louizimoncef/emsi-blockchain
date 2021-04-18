@@ -17,21 +17,12 @@
 #define EC_CURVE	NID_secp256k1
 #define EC_PUB_LEN	65
 #define SIG_MAX_LEN	72
-/*typedef struct sig_t sig_t;
+typedef struct sig_t sig_t;
 struct sig_t
 {
 uint8_t sig[SIG_MAX_LEN];
 size_t len;
-};*/
-typedef struct sig_s
-{
-	/*
-	 * @sig must stay first, so we can directly use the structure as
-	 * an array of char
-	 */
-	uint8_t	sig[SIG_MAX_LEN];
-	uint8_t	len;
-} sig_t;
+};
 uint8_t *sha256(int8_t const *s, size_t len,
 uint8_t digest[SHA256_DIGEST_LENGTH]);
 EC_KEY *ec_create(void);
