@@ -19,7 +19,7 @@
 typedef struct sig_t sig_t;
 struct sig_t
 {
-uint8_t  sig[256];
+uint8_t sig[72];
 size_t len;
 };
 uint8_t *sha256(int8_t const *s, size_t len,
