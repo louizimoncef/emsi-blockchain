@@ -16,11 +16,11 @@
 #define PRI_FILENAME	"key.pem"
 #define EC_CURVE	NID_secp256k1
 #define EC_PUB_LEN	65
-
+#define SIG_LEN	100
 typedef struct sig_t sig_t;
 struct sig_t
 {
-uint8_t sig[100];
+uint8_t sig[SIG_LEN];
 size_t len;
 };
 uint8_t *sha256(int8_t const *s, size_t len,
