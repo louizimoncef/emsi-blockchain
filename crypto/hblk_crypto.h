@@ -18,7 +18,8 @@
 #define EC_PUB_LEN	65
 #define SIG_MAX_LEN	72
 /**
- * struct sig_s - EC Signature structure
+ * struct sig_t - Signature structure to stock
+ * a signature
  * @sig: The Signature buffer
  * @len: Signature size
  */
