@@ -18,12 +18,14 @@
 #define EC_PUB_LEN	65
 #define SIG_MAX_LEN	72
 /**
- * struct sig_t - Signature structure to stock
- * a signature
+ * sig_t - Typedef for  struct sig_t
+ */
+typedef struct sig_t sig_t;
+/**
+ * struct sig_t - Signature structure to stock a signature
  * @sig: The Signature buffer
  * @len: Signature size
  */
-typedef struct sig_t sig_t;
 struct sig_t
 {
 uint8_t sig[SIG_MAX_LEN];
