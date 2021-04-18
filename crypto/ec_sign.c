@@ -6,7 +6,7 @@
  * @msg: message to be signed
  * @msglen: length of that message
  * @sig: pointer to  the signature
- * Return: pointer to the signature on sucess, NULL on failure
+ * Return: pointer to the signature on sucess NULL failure
  */
 uint8_t *ec_sign(EC_KEY const *key, uint8_t const *msg,
 size_t msglen, sig_t *sig)
