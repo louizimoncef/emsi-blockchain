@@ -5,5 +5,4 @@ if (key && msg)
 if (ECDSA_sign(0, msg, msglen, sig->sig,(unsigned int*)&sig->len, (EC_KEY *)key))
 return (sig->sig);
 return (NULL);
-}
-~        
+}    
