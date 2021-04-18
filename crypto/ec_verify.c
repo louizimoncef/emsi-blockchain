@@ -12,9 +12,9 @@
 int ec_verify(EC_KEY const *key, uint8_t const *msg, size_t msglen,
 sig_t const *sig)
 {
-if (key  && msg  && sig && sig->len )
+if (key  && msg  && sig && sig->len)
 if (ECDSA_verify(0, msg, msglen,
-(void *)sig->sig, (int)(sig->len), (void *)key) )
+(void *)sig->sig, (int)(sig->len), (void *)key))
 return (1);
 return (0);
 }
