@@ -1,6 +1,6 @@
 #ifndef block_chain
 #define block_chain
-
+#include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
