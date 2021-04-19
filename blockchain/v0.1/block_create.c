@@ -9,6 +9,7 @@
 block_t *block_create(block_t const *prev, int8_t const *data,
 uint32_t data_len)
 {
+uint32_t i;
 block_t *block = (block_t *) malloc(sizeof(block_t));
 if (!prev || !data)
 return (NULL);
@@ -22,6 +23,7 @@ if (data_len > (uint32_t)BLOCKCHAIN_DATA_MAX)
 block->data.len = BLOCKCHAIN_DATA_MAX;
 else
 block->data.len = data_len;
-block->hash[0] = 0;
+for (i = 0; i < SHA256_DIGEST_LENGTH; i++)
+block->hash[i] = 0;
 return (block);
 }
