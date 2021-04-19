@@ -1,5 +1,5 @@
-#ifndef __BLOCKCHAIN_H_
-#define __BLOCKCHAIN_H_
+#ifndef block_chain
+#define block_chain
 
 #include <stdlib.h>
 #include <stdio.h>

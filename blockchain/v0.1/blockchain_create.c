@@ -12,7 +12,16 @@ genesis = (block_t *) malloc(sizeof(block_t));
 memcpy(genesis, (block_t *) &gene, sizeof(block_t));
 blockchain = (blockchain_t *) malloc(sizeof(blockchain_t));
 blockchain->chain = llist_create(MT_SUPPORT_TRUE);
-if (llist_add_node(blockchain->chain, genesis, ADD_NODE_FRONT) != 0)
+if(blockchain->chain)
+{
+free(genesis);
+free(blockchain);
 return (NULL);
+}
+if (llist_add_node(blockchain->chain, genesis, ADD_NODE_FRONT) == 0)
 return (blockchain);
+free(blockchain->chain);
+free(blockchain);
+free(genesis);
+return (NULL);
 }
