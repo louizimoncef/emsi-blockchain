@@ -1,6 +1,9 @@
 #include "blockchain.h"
-
-void block_destroy(block_t *block){
-
-	free(block);
+/**
+ * block_destroy - destroy a block
+ *@block: the block to be destroy
+ */
+void block_destroy(block_t *block)
+{
+free(block);
 }
