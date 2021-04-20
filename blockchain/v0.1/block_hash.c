@@ -1,7 +1,7 @@
 #include "blockchain.h"
 /**
  * block_hash - to hash a passed block
- *@block: block to be hashed 
+ *@block: block to be hashed
  *@hash_buf: where stock hashed block
  * Return: hashed block or NULL
  */
