@@ -1,14 +1,14 @@
 #include "blockchain.h"
 
 
-int write_block(llist_node_t ptr, unsigned int idx, void *arg){
+int write_block(llist_node_t ptr, unsigned int no, void *arg){
 
 	FILE *fp;
 	block_t *block = ptr;
 
-	idx=0;
+	no=-1;
 
-	if (!arg || !ptr) return -1;
+	if (!arg || !ptr) return no;
 
 	fp = (FILE *)arg;
 	fwrite((void *)&block->info, sizeof(block->info), 1, fp);
@@ -35,7 +35,7 @@ int blockchain_serialize(blockchain_t const *blockchain, char const *path){
 	hblk_endian = _get_endianness();
 	hblk_blocks = llist_size(blockchain->chain);
 
-	if (header.hblk_blocks == -1) return -1;
+	if (hblk_blocks == -1) return -1;
 
 	fp = fopen(path, "w");
 
