@@ -1,6 +1,6 @@
 #ifndef _ENDIANNESS_H_
 # define _ENDIANNESS_H_
-
+#include <llist.h>
 # include <stdint.h>
 # include <stddef.h>
 # include "blockchain.h"
