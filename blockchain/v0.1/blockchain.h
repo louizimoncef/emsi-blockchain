@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <openssl/sha.h>
 #include <unistd.h>
+#include <llist.h>
 #include "provided/endianness.h"
 #include "../../crypto/hblk_crypto.h"
 #define GENESIS_BLOCK { \
