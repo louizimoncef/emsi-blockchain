@@ -2,15 +2,18 @@
 
 
 int write_block(llist_node_t ptr, unsigned int no, void *file)
-{
-	FILE *fptr=(FILE*)file;;
-	block_t *block = ptr;
+{   block_t *block = ptr;
+	FILE *fptr;
 	no = -1;
-	if (!arg || !ptr) return no;
+	if (file) 
+	{
+        fptr=(FILE*)file;
 	fwrite((void *)&block->info, sizeof(block->info), 1, fptr);
 	fwrite((void *)&block->data.len, sizeof(block->data.len), 1, fptr);
 	fwrite(block->data.buffer, block->data.len, 1, fptr);
 	fwrite(block->hash, sizeof(block->hash), 1, fptr);
+	return no;
+	}
 	return 0;
 }
 
@@ -43,5 +46,5 @@ int blockchain_serialize(blockchain_t const *blockchain, char const *path)
 	}
 	}
 	fclose(fptr);
-	return -1
+	return -1;
 }
