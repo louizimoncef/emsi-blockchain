@@ -3,6 +3,7 @@
 #include <llist.h>
 # include <stdint.h>
 # include <stddef.h>
+#include <stdio.h>
 # include "blockchain.h"
 /*
  * # include <stdint.h>
