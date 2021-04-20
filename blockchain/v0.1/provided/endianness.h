@@ -41,5 +41,6 @@ typedef union _endian_u
 
 uint8_t	_get_endianness(void);
 void _swap_endian(void *p, size_t size);
+int block_to_file(llist_node_t ptr, unsigned int no, void *file)
 
 #endif /* ! _ENDIANNESS_H_ */
