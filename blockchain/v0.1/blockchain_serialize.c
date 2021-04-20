@@ -1,12 +1,12 @@
 #include "blockchain.h"
 
 
-int write_block(llist_node_t ptr, unsigned int no, void *arg){
+int write_block(llist_node_t ptr, unsigned int idx, void *arg){
 
 	FILE *fp;
 	block_t *block = ptr;
 
-	no=0;
+	idx=0;
 
 	if (!arg || !ptr) return -1;
 
