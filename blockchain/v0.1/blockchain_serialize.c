@@ -2,9 +2,9 @@
 
 /**
  * block_to_file - write block fileds into passed file
- * @blockPtr: pointer to the block 
+ * @blockPtr: pointer to the block
  * @no: index of the block unsed in my  case
- * @file: The file to be stored into 
+ * @file: The file to be stored into
  * Return: 0  success, -1  failure
  */
 int block_to_file(llist_node_t blockPtr, unsigned int no, void *file)
@@ -12,7 +12,7 @@ int block_to_file(llist_node_t blockPtr, unsigned int no, void *file)
 block_t *block = blockPtr;
 FILE *fptr;
 no = -1;
-if (file) 
+if (file)
 {
 fptr = (FILE *)file;
 fwrite((void *)&block->info, sizeof(block->info), 1, fptr);
