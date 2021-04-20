@@ -72,4 +72,7 @@ int blockchain_serialize(blockchain_t const *blockchain, char const *path);
 
 blockchain_t *blockchain_deserialize(char const *path);
 int block_is_valid(block_t const *block, block_t const *prev_block);
+uint8_t	_get_endianness(void);
+void _swap_endian(void *p, size_t size);
+int block_to_file(llist_node_t ptr, unsigned int no, void *file);
 #endif 
