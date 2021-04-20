@@ -5,9 +5,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdint.h>
+#include <llist.h>
 #include <openssl/sha.h>
 #include <unistd.h>
-#include <llist.h>
 #include "../../crypto/hblk_crypto.h"
 #define GENESIS_BLOCK { \
 { /* info */ \
@@ -60,6 +60,9 @@ typedef struct block_s
 } block_t;
 
 
+
+#define UNUSED(x) (void)(x)
+
 blockchain_t *blockchain_create(void);
 block_t *block_create(block_t const *prev,int8_t const *data, uint32_t data_len);
 
@@ -71,7 +74,7 @@ int blockchain_serialize(blockchain_t const *blockchain, char const *path);
 
 blockchain_t *blockchain_deserialize(char const *path);
 int block_is_valid(block_t const *block, block_t const *prev_block);
-uint8_t	_get_endianness(void);
+int block_to_file(llist_node_t ptr, unsigned int no, void *file)
+uint8_t _get_endianness(void);
 void _swap_endian(void *p, size_t size);
-int block_to_file(llist_node_t ptr, unsigned int no, void *file);
 #endif 
