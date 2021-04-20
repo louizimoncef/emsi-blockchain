@@ -35,3 +35,21 @@ void _swap_endian(void *p, size_t size)
 		n[i] ^= n[size - (i + 1)];
 	}
 }
+
+
+int block_to_file(llist_node_t ptr, unsigned int no, void *file)
+{
+block_t *block = ptr;
+FILE *fptr;
+no = -1;
+if (file) 
+{
+fptr=(FILE*)file;
+fwrite((void *)&block->info, sizeof(block->info), 1, fptr);
+fwrite((void *)&block->data.len, sizeof(block->data.len), 1, fptr);
+fwrite(block->data.buffer, block->data.len, 1, fptr);
+fwrite(block->hash, sizeof(block->hash), 1, fptr);
+return no;
+}
+return 0;
+}
