@@ -12,7 +12,7 @@ static int verify_genesis_block(block_t const *block){
 
 	blockchain_destroy(blockchain);
 
-	return (ret * -1);
+	return (hash_matches_difficulty(block->hash,block->info->difficulty));
 }
 
 
@@ -33,7 +33,7 @@ static int verify_blocks(block_t const *block, block_t const *prev_block){
 
 	if (block->data.len > BLOCKCHAIN_DATA_MAX) return -1;
 
-	return 0;
+	return (hash_matches_difficulty(block->hash,block->info->difficulty);
 }
 
 
