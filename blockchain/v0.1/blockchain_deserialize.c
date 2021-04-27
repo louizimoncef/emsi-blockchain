@@ -90,7 +90,6 @@ strcmp((const char *)hblk_version, (const char *)"0.1"))
 fclose(fptr);
 return (NULL);
 }
-printf("%d endii hblk %d \n",_get_endianness(),hblk_endian );
 if (_get_endianness() != hblk_endian)
 fun_ptr = &block_from_file_endn;
 for (i = 0 ; i < hblk_blocks ; i++)
