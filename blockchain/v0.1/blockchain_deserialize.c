@@ -1,6 +1,4 @@
 #include "blockchain.h"
-void _blockchain_print(blockchain_t const *blockchain);
-
 /**
  * block_from_file_no_endn - read block from the file
  * @fptr: The file to be read from
@@ -72,7 +70,7 @@ uint8_t hblk_magic[4];
 uint8_t hblk_version[3];
 uint8_t hblk_endian;
 int32_t hblk_blocks;
-block_t * (*fun_ptr)(FILE *) = &block_from_file_endn;
+block_t * (*fun_ptr)(FILE *) = &block_from_file_no_endn;
 blockchain_t  *blockchain =  (blockchain_t *) malloc(sizeof(blockchain_t));
 block_t *block = NULL;
 int i;
