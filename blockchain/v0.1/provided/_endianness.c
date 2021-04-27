@@ -27,7 +27,7 @@ void _swap_endian(void *p, size_t size)
 {
 	size_t i;
 	uint8_t *n = (uint8_t *)p;
-
+	printf("ho endian \n");
 	for (i = 0; i < size / 2; i++)
 	{
 		n[i] ^= n[size - (i + 1)];
