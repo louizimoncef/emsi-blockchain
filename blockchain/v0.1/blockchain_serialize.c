@@ -15,13 +15,16 @@ no = -1;
 if (file)
 {
 fptr = (FILE *)file;
-fwrite((void *)&block->info, sizeof(block->info), 1, fptr);
+fwrite((void *)&block->info.index, sizeof(block->info.index), 1, fptr);
+fwrite((void *)&block->info.difficulty, sizeof(block->info.difficulty), 1, fptr);
+fwrite((void *)&block->info.timestamp, sizeof(block->info.timestamp), 1, fptr);
+fwrite((void *)&block->info.nonce, sizeof(block->info.nonce), 1, fptr);
 fwrite((void *)&block->data.len, sizeof(block->data.len), 1, fptr);
 fwrite(block->data.buffer, block->data.len, 1, fptr);
 fwrite(block->hash, sizeof(block->hash), 1, fptr);
-return (no);
-}
 return (0);
+}
+return (no);
 }
 /**
  * blockchain_serialize -  serializes a Blockchain and save it into file
