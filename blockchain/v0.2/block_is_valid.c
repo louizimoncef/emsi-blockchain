@@ -15,7 +15,7 @@ blockchain_destroy(blockchain);
 return (-1);
 }
 blockchain_destroy(blockchain);
-return (hash_matches_difficulty(block->hash, block->info.difficulty));
+return (0);
 }
 /**
  * verify_blocks - verify the validity of a block
@@ -51,9 +51,10 @@ int block_is_valid(block_t const *block, block_t const *prev_block)
 {
 if (!block)
 return (-1);
+if (hash_matches_difficulty(block->hash, block->info.difficulty) != 0 &&
+hash_matches_difficulty(prev_block->hash, prev_block->info.difficulty) != 0)
+return (-1);
 if (!prev_block && !block->info.index)
 return (is_genesis(block));
-if (verify_blocks(block, prev_block) == 0)
-return (hash_matches_difficulty(block->hash, block->info.difficulty));
-return (-1);
+return (verify_blocks(block, prev_block));
 }
