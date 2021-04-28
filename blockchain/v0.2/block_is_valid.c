@@ -15,7 +15,7 @@ blockchain_destroy(blockchain);
 return (-1);
 }
 blockchain_destroy(blockchain);
-return 0;
+return (0);
 }
 /**
  * verify_blocks - verify the validity of a block
@@ -39,7 +39,7 @@ memcmp(block->info.prev_hash, prev_block->hash, SHA256_DIGEST_LENGTH))
 return (-1);
 if (block->data.len > BLOCKCHAIN_DATA_MAX)
 return (-1);
-return (hash_matches_difficulty(block->hash, block->info.difficulty));
+return (0);
 }
 /**
  * block_is_valid - check if the block is valid
@@ -53,5 +53,7 @@ if (!block)
 return (-1);
 if (!prev_block && !block->info.index)
 return (is_genesis(block));
-return (verify_blocks(block, prev_block));
+if (verify_blocks(block, prev_block) == 0)
+return (hash_matches_difficulty(block->hash, block->info.difficulty))
+return (-1);
 }
