@@ -43,7 +43,7 @@ memcmp(prev_block->hash, prev_sha, SHA256_DIGEST_LENGTH))
 return (-1);
 if (!block_hash(block, block_sha) ||
 memcmp(block->hash, block_sha, SHA256_DIGEST_LENGTH) ||
-memcmp(block->info.prev_hash, prev_block->hash, SHA256_DIGEST_LENGTH))
+memcmp(block->info.prev_hash, prev_sha, SHA256_DIGEST_LENGTH))
 return (-1);
 if (block->data.len > BLOCKCHAIN_DATA_MAX)
 return (-1);
