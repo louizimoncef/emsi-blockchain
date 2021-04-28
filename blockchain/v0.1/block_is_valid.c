@@ -4,14 +4,6 @@
  * @block: The file to be read from
  * Return: 0  success, -1  failure
  */
-void _print_hex_buffer(uint8_t const *buf, size_t len)
-{
-size_t i;
-for (i = 0; i < len; i++)
-printf("%02x", buf[i]);
-printf("\n");
-}
-
 int is_genesis(block_t const *block)
 {
 blockchain_t *blockchain = blockchain_create();
@@ -37,7 +29,6 @@ uint8_t block_sha[SHA256_DIGEST_LENGTH];
 uint8_t prev_sha[SHA256_DIGEST_LENGTH];
 if (prev_block->info.index != block->info.index - 1)
 return (-1);
-//if (is_genesis(prev_block) == -1)
 if (!block_hash(prev_block, prev_sha) ||
 memcmp(prev_block->hash, prev_sha, SHA256_DIGEST_LENGTH))
 return (-1);
@@ -57,12 +48,6 @@ return (0);
  */
 int block_is_valid(block_t const *block, block_t const *prev_block)
 {
-	blockchain_t *blockchain = blockchain_create();
-	uint8_t prev_sha[SHA256_DIGEST_LENGTH];
-
-block_t  *blockk = llist_get_head(blockchain->chain);
-block_hash(blockk, prev_sha);
-_print_hex_buffer(prev_sha, SHA256_DIGEST_LENGTH);
 if (!block)
 return (-1);
 if (!prev_block && !block->info.index)
