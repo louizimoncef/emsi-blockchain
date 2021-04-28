@@ -1,4 +1,5 @@
 #include "blockchain.h"
+#include <stdbool.h>
 /**
  * leadingZeroCalculer - calculute number of leading  zero in
  * the chain bits of hash
@@ -8,12 +9,11 @@
  */
 uint32_t leadingZeroCalculer(uint8_t const *hash, size_t len)
 {
-uint8_t n, x, c, res = 0, i;
+uint8_t n, c, res = 0, i;
 bool is_one = false;
 for (i = 0 ; i < len ; i++)
 {
 n = hash[i];
-x = n;
 for (c = 0; c < 8; c++)
 {
 if (!c && !i && (n & 1))
@@ -26,8 +26,8 @@ n = n >> 1;
 }
 if (is_one)
 return (res);
-return (-1);
 }
+return (-1);
 }
 /**
  * hash_matches_difficulty - check if difficulty matches
