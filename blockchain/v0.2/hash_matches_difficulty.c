@@ -13,7 +13,7 @@ uint32_t res = 0;
 uint8_t hash_test[SHA256_DIGEST_LENGTH];
 if (hash)
 {
-memset(hash, 0, SHA256_DIGEST_LENGTH);
+memset(hash_test, 0, SHA256_DIGEST_LENGTH);
 if (memcmp(hash, hash_test, SHA256_DIGEST_LENGTH))
 return (256);
 for (i = 0; i < len ; i++)
