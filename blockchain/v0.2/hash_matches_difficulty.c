@@ -10,8 +10,12 @@ uint32_t leadingZeroCalculer(uint8_t const *hash, size_t len)
 {
 uint8_t n, i = 0, x;
 uint32_t res = 0;
+uint8_t hash_test[SHA256_DIGEST_LENGTH];
 if (hash)
 {
+memset(hash, 0, SHA256_DIGEST_LENGTH);
+if (memcmp(hash, hash_test, SHA256_DIGEST_LENGTH))
+return (256);
 for (i = 0; i < len ; i++)
 {
 x = hash[i];
