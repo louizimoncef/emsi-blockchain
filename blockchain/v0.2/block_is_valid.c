@@ -54,6 +54,6 @@ return (-1);
 if (!prev_block && !block->info.index)
 return (is_genesis(block));
 if (verify_blocks(block, prev_block) == 0)
-return (hash_matches_difficulty(block->hash, block->info.difficulty))
+return (hash_matches_difficulty(block->hash, block->info.difficulty));
 return (-1);
 }
