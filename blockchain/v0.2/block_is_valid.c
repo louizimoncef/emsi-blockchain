@@ -51,11 +51,11 @@ int block_is_valid(block_t const *block, block_t const *prev_block)
 {
 if (!block)
 return (-1);
-if (hash_matches_difficulty(block->hash, block->info.difficulty) != 0)
-return (-1);
 if (prev_block)
-if (hash_matches_difficulty(prev_block->hash,
+if (hash_matches_difficulty(block->info.prev_hash,
 prev_block->info.difficulty) != 0)
+return (-1);
+if (hash_matches_difficulty(block->hash, block->info.difficulty) != 0)
 return (-1);
 if (!prev_block && !block->info.index)
 {
