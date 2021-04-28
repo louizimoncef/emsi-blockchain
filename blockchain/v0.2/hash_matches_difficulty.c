@@ -9,25 +9,31 @@
  */
 uint32_t leadingZeroCalculer(uint8_t const *hash, size_t len)
 {
-uint8_t n, c, res = 0, i;
-bool is_one = false;
+uint8_t n, c, i, inThe;
+uint32_t res = 0;
 for (i = 0 ; i < len ; i++)
 {
 n = hash[i];
+if (hash[i] == 0)
+{
+res += 8;
+continue;
+}
+else
+{
 for (c = 0; c < 8; c++)
 {
-if (!c && !i && (n & 1))
-return (0);
-else if (n & 1)
-is_one = true;
+if (n & 1)
+inThe = 0;
 else
-res++;
+inThe++;
 n = n >> 1;
 }
-if (is_one)
+res += inThe;
 return (res);
 }
-return (-1);
+}
+return (res);
 }
 /**
  * hash_matches_difficulty - check if difficulty matches
