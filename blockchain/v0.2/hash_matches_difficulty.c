@@ -8,29 +8,26 @@
  */
 uint32_t leadingZeroCalculer(uint8_t const *hash, size_t len)
 {
-uint8_t n, i = 0, x;
-uint32_t res = 0;
-uint8_t hash_test[SHA256_DIGEST_LENGTH];
-if (hash)
+uint8_t n, x, c, res = 0, i;
+bool is_one = false;
+for (i = 0 ; i < len ; i++)
 {
-memset(hash_test, 0, SHA256_DIGEST_LENGTH);
-if (memcmp(hash, hash_test, SHA256_DIGEST_LENGTH) == 0)
-return (256);
-for (i = 0; i < len ; i++)
+n = hash[i];
+x = n;
+for (c = 0; c < 8; c++)
 {
-x = hash[i];
-for (n = 0; n < 8; n++)
-{
-if ((x & 0x80) != 0)
-{
-return (res);
-}
-x = x << 1;
+if (!c && !i && (n & 1))
+return (0);
+else if (n & 1)
+is_one = true;
+else
 res++;
+n = n >> 1;
 }
-}
-}
+if (is_one)
+return (res);
 return (-1);
+}
 }
 /**
  * hash_matches_difficulty - check if difficulty matches
