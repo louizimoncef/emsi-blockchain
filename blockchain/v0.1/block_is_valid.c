@@ -37,7 +37,7 @@ uint8_t block_sha[SHA256_DIGEST_LENGTH];
 uint8_t prev_sha[SHA256_DIGEST_LENGTH];
 if (prev_block->info.index != block->info.index - 1)
 return (-1);
-if (is_genesis(prev_block) == -1)
+//if (is_genesis(prev_block) == -1)
 if (!block_hash(prev_block, prev_sha) ||
 memcmp(prev_block->hash, prev_sha, SHA256_DIGEST_LENGTH))
 return (-1);
