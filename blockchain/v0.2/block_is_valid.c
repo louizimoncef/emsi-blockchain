@@ -15,7 +15,7 @@ blockchain_destroy(blockchain);
 return (-1);
 }
 blockchain_destroy(blockchain);
-return (hash_matches_difficulty(block->hash, block->info.difficulty));
+return 0;
 }
 /**
  * verify_blocks - verify the validity of a block
