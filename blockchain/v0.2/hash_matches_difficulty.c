@@ -45,5 +45,5 @@ return (res);
 int hash_matches_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH],
 uint32_t difficulty)
 {
-return (leadingZeroCalculer(hash, SHA256_DIGEST_LENGTH) == difficulty ? 1 : 0);
+return (leadingZeroCalculer(hash, SHA256_DIGEST_LENGTH) == difficulty ? 0 : -1);
 }
