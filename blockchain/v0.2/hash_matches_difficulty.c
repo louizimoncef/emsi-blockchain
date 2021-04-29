@@ -40,10 +40,10 @@ return (res);
  * the  hash
  * @hash: The hash
  * @difficulty: The difficulty
- * Return: 0  success, -1  failure
+ * Return: 1  success, 0  failure
  */
 int hash_matches_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH],
 uint32_t difficulty)
 {
-return (leadingZeroCalculer(hash, SHA256_DIGEST_LENGTH) == difficulty ? 0 : -1);
+return (leadingZeroCalculer(hash, SHA256_DIGEST_LENGTH) == difficulty ? 1 : 0);
 }
