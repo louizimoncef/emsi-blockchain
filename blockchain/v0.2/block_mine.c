@@ -5,7 +5,7 @@
  */
 void block_mine(block_t *block)
 {
-if (block)
+if (!hash_matches_difficulty(blockHash, block->info.difficulty))
 {
 uint8_t blockHash[SHA256_DIGEST_LENGTH];
 block_hash(block, blockHash);
