@@ -6,16 +6,16 @@
 void block_mine(block_t *block)
 {
 uint8_t blockHash[SHA256_DIGEST_LENGTH];
-block->info.difficulty = 20;
 block_hash(block, blockHash);
 if (!hash_matches_difficulty(blockHash, block->info.difficulty))
 {
 block->info.nonce = 0;
-while (!hash_matches_difficulty(blockHash, block->info.difficulty))
+do
 {
 block->info.nonce++;
 block_hash(block, blockHash);
-}
+}while (!hash_matches_difficulty(blockHash, block->info.difficulty));
+
 memcpy(block->hash, blockHash, SHA256_DIGEST_LENGTH);
 }
 }
