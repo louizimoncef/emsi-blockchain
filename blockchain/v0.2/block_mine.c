@@ -9,14 +9,11 @@ if (block)
 {
 uint8_t blockHash[SHA256_DIGEST_LENGTH];
 block_hash(block, blockHash);
-if(!hash_matches_difficulty(blockHash, block->info.difficulty))
-{
 while (!hash_matches_difficulty(blockHash, block->info.difficulty))
 {
 block->info.nonce++;
 block_hash(block, blockHash);
 }
 memcpy(block->hash, blockHash, SHA256_DIGEST_LENGTH);
-}
 }
 }
