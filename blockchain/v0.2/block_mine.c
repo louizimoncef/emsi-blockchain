@@ -11,7 +11,7 @@ uint8_t blockHash[SHA256_DIGEST_LENGTH];
 block_hash(block, blockHash);
 if(hash_matches_difficulty(blockHash, block->info.difficulty)== -1)
 {
-while (!hash_matches_difficulty(blockHash, block->info.difficulty)== -1)
+while (hash_matches_difficulty(blockHash, block->info.difficulty)== -1)
 {
 block->info.nonce++;
 block_hash(block, blockHash);
