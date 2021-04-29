@@ -1,5 +1,4 @@
 #include "hblk_crypto.h"
-
 /**
  * ec_sign - Signs a given set of bytes, using a given EC_KEY
  * @key: EC key pair
