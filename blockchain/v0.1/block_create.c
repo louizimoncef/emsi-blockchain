@@ -1,6 +1,6 @@
 #include "blockchain.h"
 /**
- * block_create - create a block and initialises it
+ * block_create - create a block and initializes it
  *@prev: previous  block
  *@data: data to be stored in the block
  *@data_len: length of data
